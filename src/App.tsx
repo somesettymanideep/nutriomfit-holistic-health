@@ -10,6 +10,9 @@ import WomenWellness from "./pages/services/WomenWellness";
 import DietProgram from "./pages/services/DietProgram";
 import KidsYoga from "./pages/services/KidsYoga";
 import GutReset from "./pages/services/GutReset";
+import TermsConditions from "./pages/TermsConditions";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Disclaimer from "./pages/Disclaimer";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +31,9 @@ const App = () => (
           <Route path="/services/diet-program" element={<DietProgram />} />
           <Route path="/services/kids-yoga" element={<KidsYoga />} />
           <Route path="/services/gut-reset" element={<GutReset />} />
+          <Route path="/terms-conditions" element={<TermsConditions />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/disclaimer" element={<Disclaimer />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo.jpg";
 
 const Footer = () => {
@@ -12,19 +13,24 @@ const Footer = () => {
   ];
 
   const services = [
-    "Nutrition Coaching",
-    "Yoga Sessions",
-    "Core Strength Training",
-    "Weight Loss Programs",
-    "1:1 Coaching",
+    "Women Wellness Program",
+    "90-Day Diet Program",
+    "Kids Yoga",
+    "Gut Reset Program",
+  ];
+
+  const policies = [
+    { href: "/terms-conditions", label: "Terms & Conditions" },
+    { href: "/privacy-policy", label: "Privacy Policy" },
+    { href: "/disclaimer", label: "Medical Disclaimer" },
   ];
 
   return (
     <footer className="bg-foreground pt-16 pb-8">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           {/* Brand */}
-          <div>
+          <div className="lg:col-span-2">
             <img src={logo} alt="NutriomFit" className="h-12 w-auto mb-4 rounded-lg bg-background p-1" />
             <p className="text-primary-foreground/70 mb-6">
               Transform your health with holistic wellness programs combining 
@@ -109,11 +115,24 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="pt-8 border-t border-primary-foreground/10 text-center">
-          <p className="text-primary-foreground/50 text-sm">
-            © {new Date().getFullYear()} NutriomFit. All rights reserved.
-          </p>
+        {/* Policies & Copyright */}
+        <div className="pt-8 border-t border-primary-foreground/10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
+              {policies.map((policy) => (
+                <Link
+                  key={policy.href}
+                  to={policy.href}
+                  className="text-primary-foreground/50 hover:text-primary text-sm transition-colors"
+                >
+                  {policy.label}
+                </Link>
+              ))}
+            </div>
+            <p className="text-primary-foreground/50 text-sm">
+              © {new Date().getFullYear()} NutriomFit. All rights reserved.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
