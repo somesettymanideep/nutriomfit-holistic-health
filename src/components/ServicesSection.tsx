@@ -1,39 +1,35 @@
 import { Button } from "@/components/ui/button";
-import { Salad, Flower2, Dumbbell, ArrowRight } from "lucide-react";
+import { Heart, Salad, Baby, Droplets, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ServicesSection = () => {
   const services = [
     {
-      icon: Salad,
-      title: "Nutrition Coaching",
-      emoji: "🥗",
-      features: [
-        "Custom diet plans",
-        "Weekly follow-ups",
-        "Weight loss & muscle gain plans",
-      ],
-      color: "bg-emerald-500",
+      icon: Heart,
+      title: "Women Wellness Program",
+      slug: "women-wellness",
+      description: "A complete blend of therapeutic yoga, pranayama, and progressive strength training designed exclusively for women.",
+      color: "bg-pink-500",
     },
     {
-      icon: Flower2,
-      title: "Yoga Sessions",
-      emoji: "🧘‍♀️",
-      features: [
-        "Guided online/offline yoga",
-        "Stress relief, flexibility & balance",
-        "Beginner-friendly",
-      ],
+      icon: Salad,
+      title: "90-Day Diet Program",
+      slug: "diet-program",
+      description: "A science-backed personalized nutrition plan using the Cognitive Plating Method. No extreme restrictions.",
       color: "bg-primary",
     },
     {
-      icon: Dumbbell,
-      title: "Core Strength Training",
-      emoji: "🏋️‍♀️",
-      features: [
-        "Bodyweight + strength workouts",
-        "Posture correction",
-        "Core power routines",
-      ],
+      icon: Baby,
+      title: "Kids Yoga (Ages 7–14)",
+      slug: "kids-yoga",
+      description: "Anatomy-based interactive yoga for children to build flexibility, awareness, discipline & emotional balance.",
+      color: "bg-amber-500",
+    },
+    {
+      icon: Droplets,
+      title: "LSP + Juice Fasting",
+      slug: "gut-reset",
+      description: "A detoxifying 4-day gut reset program to cleanse the entire digestive system.",
       color: "bg-teal-500",
     },
   ];
@@ -53,34 +49,29 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <div
               key={index}
-              className="group bg-card rounded-2xl p-8 border border-border hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2"
+              className="group bg-card rounded-2xl p-6 border border-border hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2"
             >
-              <div className={`w-16 h-16 ${service.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                <service.icon className="h-8 w-8 text-primary-foreground" />
+              <div className={`w-14 h-14 ${service.color} rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
+                <service.icon className="h-7 w-7 text-white" />
               </div>
               
-              <h3 className="text-2xl font-bold text-foreground mb-2">
-                {service.emoji} {service.title}
+              <h3 className="text-xl font-bold text-foreground mb-3">
+                {service.title}
               </h3>
               
-              <ul className="space-y-3 mb-6">
-                {service.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-muted-foreground">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+              <p className="text-muted-foreground text-sm mb-5 leading-relaxed">
+                {service.description}
+              </p>
               
               <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground" asChild>
-                <a href="#consultation">
+                <Link to={`/services/${service.slug}`}>
                   Learn More
                   <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                </Link>
               </Button>
             </div>
           ))}
@@ -88,10 +79,10 @@ const ServicesSection = () => {
 
         <div className="text-center mt-12">
           <Button variant="default" size="lg" asChild>
-            <a href="#programs">
-              Explore All Services
+            <Link to="/services">
+              View All Services
               <ArrowRight className="ml-2 h-5 w-5" />
-            </a>
+            </Link>
           </Button>
         </div>
       </div>
