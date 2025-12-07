@@ -1,9 +1,10 @@
+
+import { componentTagger } from "lovable-tagger";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { componentTagger } from "lovable-tagger";
 
-
+// SPA fallback fix for GitHub Pages
 function spaFallback() {
   return {
     name: "spa-fallback",
@@ -14,14 +15,18 @@ function spaFallback() {
     },
   };
 }
-// https://vitejs.dev/config/
+
 export default defineConfig(({ mode }) => ({
   base: "/nutriomfit-holistic-health/",
   server: {
     host: "::",
     port: 8080,
   },
-  plugins: [react(), mode === "development" && componentTagger(),spaFallback()].filter(Boolean),
+  plugins: [
+    react(),
+    mode === "development" && componentTagger(),
+    spaFallback(), // 👈 Add this
+  ].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
