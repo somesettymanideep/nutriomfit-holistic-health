@@ -5,7 +5,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/nutriomfit-holistic-health/",
+  
+  base: mode === "production" ? "/nutriomfit-holistic-health/" : "/",
   server: {
     host: "::",
     port: 8080,
