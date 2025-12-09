@@ -1,5 +1,5 @@
 {
-  "homepage": "https://nutriomfit.com/",
+  "homepage": "https://somesettymanideep.github.io/nutriomfit-holistic-health/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -84,7 +84,9 @@
     "vite": "^5.4.19"
   },
   "gh-pages": {
+  "dotfiles": true,
   "git": "git"
 }
+
 
 }
