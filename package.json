@@ -1,11 +1,12 @@
 {
-   "homepage": "https://nutriomfit.com",
+   
+   "homepage": "https://somesettymanideep.github.io/nutriomfit-holistic-health/",
+
    "name": "vite_react_shadcn_ts",
    "private": true,
    "version": "0.0.0",
    "type": "module",
    "scripts": {
-      "start": "react-scripts start",
       "dev": "vite",
       "build": "vite build",
       "build:dev": "vite build --mode development",
