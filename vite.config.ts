@@ -4,7 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: "/nutriomfit-holistic-health/", // repo name
+  base: "/", // repo name
 
   plugins: [
     react(),
