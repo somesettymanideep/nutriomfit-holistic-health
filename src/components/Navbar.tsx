@@ -10,11 +10,12 @@ const Navbar = () => {
   const isHomePage = location.pathname === "/";
 
   const navLinks = [
-    { href: "/about", label: "About", isPage: true },
-    { href: "/services", label: "Services", isPage: true },
+    { href: isHomePage ? "#about" : "/about", label: "About", isPage: !isHomePage },
+    { href: isHomePage ? "#services" : "/services", label: "Services", isPage: !isHomePage },
     { href: "/#programs", label: "Programs", isPage: true },
+    { href: "/#testimonials", label: "Testimonials", isPage: true },
     { href: "/#pricing", label: "Pricing", isPage: true },
-    { href: "/contact", label: "Contact", isPage: true },
+    { href: "/#faq", label: "FAQ", isPage: true },
   ];
 
   return (
